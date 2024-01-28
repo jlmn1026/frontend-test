@@ -1,11 +1,15 @@
 import { PageRoute } from "@/routes/pageRoutes";
 import { styled } from "@linaria/react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const TopPage = () => {
   return (
     <Container>
-      <Link to={PageRoute.Population}>都道府県別人口</Link>
+      <Button>AAA</Button>
+      <Button>
+        <Link to={PageRoute.Population}>都道府県別人口</Link>
+      </Button>
     </Container>
   );
 };
