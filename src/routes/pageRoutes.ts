@@ -1,4 +1,4 @@
 export const PageRoute = {
-  Top: "/",
-  Population: "/population ",
+  Top: "",
+  Population: "/population",
 };

@@ -19,6 +19,7 @@ export default CommonLayout;
 const RootContainer = styled.main`
   display: flex;
   justify-content: center;
+  min-width: 600px;
 `;
 
 const Container = styled.div`

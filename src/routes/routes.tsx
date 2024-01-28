@@ -2,6 +2,7 @@ import { Outlet, useRoutes } from "react-router-dom";
 import { PageRoute } from "./pageRoutes";
 import TopPage from "@/pages/TopPage";
 import CommonLayout from "@/common-ui/layout/CommonLayout";
+import PopulationPage from "@/pages/PopulationPage";
 
 const Layout = () => {
   return (
@@ -16,9 +17,14 @@ export const AppRoutes = () => {
 
   const publicRoutes = [
     {
-      path: "/",
+      path: PageRoute.Top,
       element: <Layout />,
       children: [{ path: PageRoute.Top, element: <TopPage /> }],
+    },
+    {
+      path: PageRoute.Population,
+      element: <Layout />,
+      children: [{ path: PageRoute.Top, element: <PopulationPage /> }],
     },
   ];
 

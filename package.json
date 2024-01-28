@@ -24,6 +24,7 @@
     "react-helmet-async": "^2.0.4",
     "react-router-dom": "^6.21.3",
     "reset-css": "^5.0.2",
+    "swr": "^2.2.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
   },

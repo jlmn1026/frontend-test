@@ -6,10 +6,9 @@ import { Button } from "@/components/ui/button";
 const TopPage = () => {
   return (
     <Container>
-      <Button>AAA</Button>
-      <Button>
-        <Link to={PageRoute.Population}>都道府県別人口</Link>
-      </Button>
+      <Link to={PageRoute.Population}>
+        <Button size="lg">都道府県別人口</Button>
+      </Link>
     </Container>
   );
 };
