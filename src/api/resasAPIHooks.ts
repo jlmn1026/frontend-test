@@ -8,11 +8,7 @@ export const useAllPrefectures = () => {
     return commonFeatcher("prefectures");
   });
 
-  if (error) {
-    console.error(error);
-  }
-
-  if (isLoading || !data) return [];
+  if (isLoading || !data || error) return [];
 
   return data;
 };

@@ -12,6 +12,7 @@
   "dependencies": {
     "@linaria/core": "^6.0.0",
     "@linaria/react": "^6.0.0",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@wyw-in-js/babel-preset": "^0.3.0",
     "class-variance-authority": "^0.7.0",

@@ -16,20 +16,18 @@ const CommonLayout = ({ children }: Props) => {
 
 export default CommonLayout;
 
-const RootContainer = styled.main`
+const RootContainer = styled.div`
   display: flex;
   justify-content: center;
-  min-width: 600px;
 `;
 
-const Container = styled.div`
+const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10px;
-  min-width: 600px;
-  max-width: 1600px;
   width: 100%;
+  max-width: 1600px;
   background: #e0f4ff;
 `;
 

@@ -1,18 +1,25 @@
-import { useAllPrefectures } from "@/api/resasHooks";
+import { PrefectureSelect } from "@/features/PrefectureSelect";
 import { styled } from "@linaria/react";
 
 const PopulationPage = () => {
-  const allPrefectures = useAllPrefectures();
   return (
     <Container>
-      {allPrefectures.map((prefecture) => {
-        return <div>{prefecture.prefName}</div>;
-      })}
+      <HeaderRow>
+        <PrefectureSelect />
+      </HeaderRow>
     </Container>
   );
 };
 
 export default PopulationPage;
+
+const HeaderRow = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+`;
 
 const Container = styled.div`
   display: flex;
