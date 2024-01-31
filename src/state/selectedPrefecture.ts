@@ -1,3 +1,5 @@
 import { atom } from "jotai";
 
-export const selectedPrefectureAtom = atom<string | undefined>(undefined);
+export const prefectureAtom = atom<string | undefined>(undefined);
+
+export const prefectureAtomSelector = atom((get) => get(prefectureAtom));

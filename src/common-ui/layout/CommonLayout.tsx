@@ -33,4 +33,5 @@ const Container = styled.main`
 
 const Content = styled.div`
   min-height: 100vh;
+  width: 100%;
 `;

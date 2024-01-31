@@ -1,3 +1,4 @@
+import PopulationGraph from "@/features/PopulationGraph";
 import { PrefectureSelect } from "@/features/PrefectureSelect";
 import { styled } from "@linaria/react";
 
@@ -7,11 +8,22 @@ const PopulationPage = () => {
       <HeaderRow>
         <PrefectureSelect />
       </HeaderRow>
+      <GraphContent>
+        <PopulationGraph />
+      </GraphContent>
     </Container>
   );
 };
 
 export default PopulationPage;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 24px;
+`;
 
 const HeaderRow = styled.div`
   display: flex;
@@ -21,9 +33,7 @@ const HeaderRow = styled.div`
   margin-bottom: 24px;
 `;
 
-const Container = styled.div`
+const GraphContent = styled.div`
   display: flex;
-  height: 100%;
-
-  gap: 24px;
+  width: 100%;
 `;

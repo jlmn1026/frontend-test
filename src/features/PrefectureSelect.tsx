@@ -7,15 +7,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { selectedPrefectureAtom } from "@/state/selectedPrefecture";
+import { prefectureAtom } from "@/state/selectedPrefecture";
 import { useAtom } from "jotai";
 
 export function PrefectureSelect() {
   const allPrefectures = useAllPrefectures();
-  const [, setPrefecture] = useAtom(selectedPrefectureAtom);
+  const [prefecture, setPrefecture] = useAtom(prefectureAtom);
 
   return (
     <Select
+      value={prefecture}
       onValueChange={(value) => {
         setPrefecture(value);
       }}
