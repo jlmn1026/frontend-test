@@ -1,8 +1,11 @@
-import { Outlet, useRoutes } from "react-router-dom";
+import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import { PageRoute } from "./pageRoutes";
 import TopPage from "@/pages/TopPage";
 import CommonLayout from "@/common-ui/layout/CommonLayout";
 import PopulationPage from "@/pages/PopulationPage";
+import { apiKeyAtomSelector } from "@/state/apiKey";
+import { useAtomValue } from "jotai";
+import APIConfigPage from "@/pages/APIConfigPage";
 
 const Layout = () => {
   return (
@@ -13,32 +16,40 @@ const Layout = () => {
 };
 
 export const AppRoutes = () => {
-  // const auth = useAuth();
+  const apiKey = useAtomValue(apiKeyAtomSelector);
 
   const publicRoutes = [
     {
-      path: PageRoute.Top,
+      path: PageRoute.APIConfig,
       element: <Layout />,
-      children: [{ path: PageRoute.Top, element: <TopPage /> }],
-    },
-    {
-      path: PageRoute.Population,
-      element: <Layout />,
-      children: [{ path: PageRoute.Top, element: <PopulationPage /> }],
+      children: [{ path: "", element: <APIConfigPage /> }],
     },
   ];
 
-  // const protectedRoutes = [
-  //   {
-  //     path: '/app',
-  //     element: <App />,
-  //     children: [
-  //       { path: '/users', element: <Users /> },
-  //     ],
-  //   },
-  // ];
+  const protectedRoutes = (() => {
+    if (!apiKey) {
+      return [];
+    }
 
-  const element = useRoutes([...publicRoutes]);
+    return [
+      {
+        path: PageRoute.Top,
+        element: <Layout />,
+        children: [{ path: "", element: <TopPage /> }],
+      },
+      {
+        path: PageRoute.Population,
+        element: <Layout />,
+        children: [{ path: "", element: <PopulationPage /> }],
+      },
+    ];
+  })();
+
+  const element = useRoutes([
+    ...publicRoutes,
+    ...protectedRoutes,
+    { path: "*", element: <Navigate to={PageRoute.APIConfig} replace /> },
+  ]);
 
   return <>{element}</>;
 };

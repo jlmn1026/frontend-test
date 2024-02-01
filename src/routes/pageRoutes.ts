@@ -1,4 +1,5 @@
 export const PageRoute = {
-  Top: "",
+  Top: "/top",
   Population: "/population",
+  APIConfig: "/api-config",
 };

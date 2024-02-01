@@ -9,6 +9,9 @@ const TopPage = () => {
       <Link to={PageRoute.Population}>
         <Button size="lg">都道府県別人口</Button>
       </Link>
+      <Link to={PageRoute.Population}>
+        <Button size="lg">都道府県別人口(比較)</Button>
+      </Link>
     </Container>
   );
 };

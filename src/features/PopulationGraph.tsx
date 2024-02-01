@@ -42,8 +42,7 @@ type Props = {
 };
 
 const RootContent = ({ prefecture }: Props) => {
-  const population = usePopulation(prefecture ?? "");
-
+  const population = usePopulation(prefecture);
   if (!population || population.data.length === 0) {
     return null;
   }

@@ -1,12 +1,8 @@
-import useSWR from "swr";
-import { commonFeatcher } from "./commonFeatcher";
+import { useCommonSWR } from "./commonFeatcher";
 
 export const useAllPrefectures = () => {
-  const { data, isLoading, error } = useSWR<
-    { prefCode: number; prefName: string }[]
-  >("prefectures", () => {
-    return commonFeatcher("prefectures");
-  });
+  const { data, isLoading, error } =
+    useCommonSWR<{ prefCode: number; prefName: string }[]>("prefectures");
 
   if (isLoading || !data || error) return [];
 
@@ -22,23 +18,14 @@ type PopulationData = {
 };
 
 export const usePopulation = (prefCode: string) => {
-  const { data, isLoading, error } = useSWR<{
+  const { data, isLoading, error } = useCommonSWR<{
     boundaryYear: number;
     data: PopulationData[];
-  }>(
-    ["population/composition/perYear", prefCode],
-    () => {
-      return commonFeatcher(
-        `population/composition/perYear?prefCode=${prefCode}`
-      );
-    },
-    {
-      revalidateOnMount: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-      revalidateIfStale: false,
-    }
-  );
+  }>(`population/composition/perYear?prefCode=${prefCode}`, {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    revalidateIfStale: false,
+  });
 
   if (isLoading || !data || error) return undefined;
 
