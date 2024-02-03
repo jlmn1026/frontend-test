@@ -9,8 +9,19 @@ export const commonFeatcher = async (path: string, apiKey: string) => {
   return fetch(`https://opendata.resas-portal.go.jp/api/v1/${path}`, {
     headers,
   })
-    .then((res) => res.json())
-    .then((json) => json.result);
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      if (json.statusCode === "403") {
+        console.log("aaaa");
+        alert("APIキーが不正なようです");
+        window.location.href = "/api-key";
+        return;
+      }
+
+      return json.result;
+    });
 };
 
 export const useCommonSWR = <T>(

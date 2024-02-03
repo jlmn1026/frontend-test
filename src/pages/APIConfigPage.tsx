@@ -33,7 +33,9 @@ const APIConfigPage = () => {
 
           <InputRow>
             <Input onChange={(e) => setInputValue(e.target.value)} />
-            <Button onClick={storeAPIKey}>設定</Button>
+            <Button onClick={storeAPIKey} disabled={inputValue.length === 0}>
+              設定
+            </Button>
           </InputRow>
         </InputContainer>
       </Content>
