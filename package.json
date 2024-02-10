@@ -12,6 +12,7 @@
   "dependencies": {
     "@linaria/core": "^6.0.0",
     "@linaria/react": "^6.0.0",
+    "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@wyw-in-js/babel-preset": "^0.3.0",
@@ -25,6 +26,7 @@
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.12",
     "react-helmet-async": "^2.0.4",
+    "react-hook-form": "^7.50.1",
     "react-router-dom": "^6.21.3",
     "reset-css": "^5.0.2",
     "swr": "^2.2.4",

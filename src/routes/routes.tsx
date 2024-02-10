@@ -6,6 +6,7 @@ import PopulationPage from "@/pages/PopulationPage";
 import { apiKeyAtomSelector } from "@/state/apiKey";
 import { useAtomValue } from "jotai";
 import APIConfigPage from "@/pages/APIConfigPage";
+import ComparePopulationPage from "@/pages/ComparePopulationPage";
 
 const Layout = () => {
   return (
@@ -41,6 +42,11 @@ export const AppRoutes = () => {
         path: PageRoute.Population,
         element: <Layout />,
         children: [{ path: "", element: <PopulationPage /> }],
+      },
+      {
+        path: PageRoute.ComparePopulation,
+        element: <Layout />,
+        children: [{ path: "", element: <ComparePopulationPage /> }],
       },
     ];
   })();
