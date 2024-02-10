@@ -14,7 +14,6 @@ export const commonFeatcher = async (path: string, apiKey: string) => {
     })
     .then((json) => {
       if (json.statusCode === "403") {
-        console.log("aaaa");
         alert("APIキーが不正なようです");
         window.location.href = "/api-key";
         return;

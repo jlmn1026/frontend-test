@@ -46,6 +46,10 @@ const PrefectureCheck = ({ prefecture }: Props) => {
         checked={checks.includes(prefecture.prefCode)}
         onCheckedChange={(checked: boolean) => {
           if (checked) {
+            if (checks.length >= 4) {
+              alert("都道府県は4つまで選択できます");
+              return;
+            }
             setChecks((current) => [...current, prefecture.prefCode]);
             return;
           }

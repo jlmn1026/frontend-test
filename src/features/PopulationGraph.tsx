@@ -41,6 +41,17 @@ type Props = {
   prefecture: string;
 };
 
+const PopulationGraph = () => {
+  const prefecture = useAtomValue(prefectureAtomSelector);
+  if (prefecture == null) {
+    return null;
+  }
+
+  return <RootContent prefecture={prefecture} />;
+};
+
+export default PopulationGraph;
+
 const RootContent = ({ prefecture }: Props) => {
   const population = usePopulation(prefecture);
   if (!population || population.data.length === 0) {
@@ -64,14 +75,3 @@ const RootContent = ({ prefecture }: Props) => {
 
   return <Line height="700px" data={data} options={options} />;
 };
-
-const PopulationGraph = () => {
-  const prefecture = useAtomValue(prefectureAtomSelector);
-  if (prefecture == null) {
-    return null;
-  }
-
-  return <RootContent prefecture={prefecture} />;
-};
-
-export default PopulationGraph;
