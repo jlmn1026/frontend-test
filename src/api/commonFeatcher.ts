@@ -31,7 +31,7 @@ export const useCommonSWR = <T>(
   return useSWR<T>(
     path,
     () => {
-      return commonFeatcher(path, apiKey ?? "");
+      return commonFeatcher(path, apiKey);
     },
     swrConfig
   );

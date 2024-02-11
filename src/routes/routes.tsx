@@ -51,11 +51,11 @@ export const AppRoutes = () => {
     ];
   })();
 
-  const element = useRoutes([
+  const routeElements = useRoutes([
     ...publicRoutes,
     ...protectedRoutes,
     { path: "*", element: <Navigate to={PageRoute.APIConfig} replace /> },
   ]);
 
-  return <>{element}</>;
+  return <>{routeElements}</>;
 };

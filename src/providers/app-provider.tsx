@@ -7,7 +7,7 @@ import { Provider as JotaiProvider } from "jotai";
 const ErrorFallback = () => {
   return (
     <div role="alert">
-      <h2>Ooops, something went wrong :( </h2>
+      <h2>予期せぬエラーが発生しました</h2>
     </div>
   );
 };
